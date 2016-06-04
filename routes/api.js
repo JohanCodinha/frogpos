@@ -18,15 +18,13 @@ apiRoutes.use(function(req, res, next) {
     jwt.verify(token, secret, function(err, decoded) {      
       if (err) {
         return res.json({ success: false, message: 'Failed to authenticate token.' });    
-      } else {
+      }else {
         // if everything is good, save to request for use in other routes
         req.decoded = decoded;    
         next();
       }
     });
-
   } else {
-
     // if there is no token
     // return an error
     return res.status(403).send({ 
@@ -38,7 +36,7 @@ apiRoutes.use(function(req, res, next) {
 });
 
 // /api/...
-apiRoutes.get('/users', function(req, res){
+apiRoutes.get('/user', function(req, res){
   return apiCtrl.userList(req, res);
 });
 
@@ -46,4 +44,11 @@ apiRoutes.post('/business', function(req, res){
   return apiCtrl.newBusiness(req, res);
 });
 
+apiRoutes.get('/business', function(req, res){
+  return apiCtrl.businessList(req, res);
+});
+
+apiRoutes.post('/user', function(req, res){
+  return apiCtrl.newUser(req, res);
+});
 module.exports = apiRoutes;

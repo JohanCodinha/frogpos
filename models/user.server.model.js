@@ -18,9 +18,17 @@ var UserSchema = new Schema({
 	createdOn: {
 		type: Date,
 		default: Date.now},
-	admin: {
-		type: Boolean,
-		default: false}
+	position: {
+		admin: {
+			type: Boolean,
+			default: false},
+		staff: {
+			type: Boolean,
+			default: false},
+		manager: {
+			type: Boolean,
+			default: false}
+		}
 });
 
 // Middleware password encryption with bcrypt

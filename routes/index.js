@@ -6,11 +6,11 @@ router.get('/users', function(req, res){
 	return apiCtrl.userList(req, res);
 });
 
-router.post('/', function(req, res){
-	return apiCtrl.newUser(req, res);
-});
+// router.post('/', function(req, res){
+// 	return apiCtrl.newUser(req, res);
+// });
 
-router.post('/api/authenticate', function(req, res){
+router.post('/authenticate', function(req, res){
 	return apiCtrl.apiLogin(req, res);
 });
 
